@@ -1,94 +1,88 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql,StaticQuery } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Post from "../components/Post"
+import Sidebar from "../components/Sidebar"
 
+// TODO: Finish this component. You can also destructure props if you want to.
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
+  
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+    <Layout location={location} >
+      <div className="blogsMenu">
+        <div className="centered">
+        {/* <h1 className="main-title">All Fairs</h1> */}
+        </div>
+        <StaticQuery query={indexQuery} render={data => {
+  return (
+    <div>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <Post 
+          key={node.id}
+          title={node.frontmatter.title}
+          author={node.frontmatter.author}
+          slug={node.fields.slug}
+          date = {node.frontmatter.date}
+          body={node.excerpt}
+          tags={node.frontmatter.tags}
+         />
+      ))}
+    </div>
+    
+  )
+}} />
 
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      <div className="sidebar">
+        <Sidebar />
+      </div>
+
+      </div>
+      
     </Layout>
   )
 }
 
 export default BlogIndex
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="All posts" />
 
-export const pageQuery = graphql`
-  {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        excerpt
-        fields {
+// TODO: You need to extend the query for relevant data attributes.
+// export const pageQuery = graphql`
+//   {
+//     site {
+//       siteMetadata {
+//         title
+
+       
+//       }
+//     }
+//   }
+// `
+
+
+const indexQuery = graphql` 
+query{
+  allMarkdownRemark(sort: { fields: [frontmatter___date],order: DESC}){ 
+    edges{
+      node{
+        id
+        frontmatter{
+          title
+          date
+          author
+          tags
+          
+          
+        }
+        fields{
           slug
         }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
+        excerpt
       }
     }
   }
+}
 `

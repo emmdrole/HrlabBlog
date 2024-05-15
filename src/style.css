@@ -238,7 +238,7 @@ a:focus {
 
 /* Custom classes */
 
-.global-wrapper {
+/* .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
@@ -246,7 +246,7 @@ a:focus {
 
 .global-wrapper[data-is-root-path="true"] .bio {
   margin-bottom: var(--spacing-20);
-}
+} */
 
 .global-header {
   margin-bottom: var(--spacing-12);
@@ -328,4 +328,183 @@ a:focus {
   ol {
     list-style-position: inside;
   }
+}
+
+/*new styles*/
+
+*{
+  font-family: sans-serif;
+}
+
+/*main nav styled*/
+
+
+.global-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  
+  
+}
+
+
+
+
+.imageHrlab{
+  height: 85px;
+  width: 85px;
+}
+
+.li1{
+  list-style: none;
+  
+  
+}
+
+.li1 > a{
+  color: rgba(0, 0, 0, 0.54);
+  text-decoration: none;
+}
+
+.menuList{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.children-wrapper{
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  height: 100vh;
+  margin-top: -10px;
+}
+
+.main-title{
+  font-size: 3.65rem;
+}
+
+/* Post Styles */
+
+.blogsMenu{
+  display: flex;
+  flex-direction: row;
+}
+
+.post-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+
+.title-post{
+  color: rgb(0, 117, 178);
+}
+
+.centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meta-info{
+  font-weight: 599;
+  color: #383838;
+  margin-top: -15px;
+}
+
+.smaller{
+  /* border: 1px solid red; */
+  width: 70%;
+  margin-top: 24px;
+}
+
+
+.btn-more{
+  text-decoration: none;
+  color: white;
+  padding: 10px  20px 10px 20px;
+  background-color: rgb(232, 141, 29);
+  border-radius: 4px;
+  font-weight: 499;
+  margin-bottom: 40px;
+}
+
+.btn-more:hover{
+  cursor: pointer;
+  background-color: rgb(178, 98, 0);
+}
+
+
+/* side bar styles */
+
+.sidebar{
+  
+  
+  /* border: 1px solid red; */
+
+}
+
+.advertisement{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+  width: 70%;
+  padding-bottom: 40px;
+  padding-top: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.fairs-upcoming{
+  width: 70%;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  
+}
+
+.title-date{
+  margin-bottom: 10px;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.dashed-border{
+  border-bottom-style: dashed;
+  border-bottom-width: 1.4px;
+  
+  color: rgb(44, 94, 138);
+}
+
+
+/* read more post styles */
+
+.read-more-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 210px;
+  padding-right: 210px;
+  padding-top: 15px;
+}
+
+.read-more-titles{
+  color: rgb(0, 117, 178);;
+}
+
+.read-more-meta{
+  margin-top: -10px;
+  margin-bottom: 40px;
 }
