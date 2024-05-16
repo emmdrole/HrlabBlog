@@ -393,6 +393,7 @@ a:focus {
 .blogsMenu{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .post-container{
@@ -507,4 +508,11 @@ a:focus {
 .read-more-meta{
   margin-top: -10px;
   margin-bottom: 40px;
+}
+
+
+/* responsive styles big screen */
+
+@media only screen and (min-width: 1600px) {
+  
 }
