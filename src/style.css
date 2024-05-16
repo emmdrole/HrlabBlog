@@ -546,7 +546,7 @@ a:focus {
   }
 
   .read-more-container{
-    padding-left: 90px;
-    padding-right: 90px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
