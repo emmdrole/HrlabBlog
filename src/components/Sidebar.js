@@ -7,7 +7,7 @@ const Sidebar = () => {
     <div className='sidebar-Container'>
 
     <div className='advertisement'>
-        <h4>Advertisement</h4>
+        <h4 className='addsmall'>Advertisement</h4>
         <img src='https://via.placeholder.com/320x200' alt='Add' style={{width: "100%"}}></img>
     </div>
 

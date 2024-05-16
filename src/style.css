@@ -513,6 +513,40 @@ a:focus {
 
 /* responsive styles big screen */
 
-@media only screen and (min-width: 1600px) {
-  
+@media only screen and (max-width: 693px) {
+  .sidebar-Container{
+    margin-left: 28px;
+  }
+  .title-post{
+    font-size: 20px;
+  }
+
+  .meta-info{
+    font-size: 12px;
+  }
+
+  .smaller{
+    font-size: 10px;
+  }
+
+  .btn-more{
+    font-size: 8px;
+  }
+
+  .title-date{
+    font-size: 8px;
+  }
+
+  .fairs-upcoming{
+    font-size: 13px;
+  }
+
+  .addsmall{
+    font-size: 13px;
+  }
+
+  .read-more-container{
+    padding-left: 90px;
+    padding-right: 90px;
+  }
 }
